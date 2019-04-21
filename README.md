@@ -1,4 +1,4 @@
-## react-redux-ssr-history
+## react-redux-ssr-state
 
 this is an app built upon the **react-redux-ssr** app.
 
