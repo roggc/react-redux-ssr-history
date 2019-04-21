@@ -1,12 +1,12 @@
-console.log('src/server');
+console.log('src/server')
 
-import path from 'path';
-import express from 'express';
-import React from 'react';
-import {renderToString} from 'react-dom/server';
-import {Provider} from 'react-redux';
-import {getStore} from './store/index';
-import App from './components/app/index';
+import path from 'path'
+import express from 'express'
+import React from 'react'
+import {renderToString} from 'react-dom/server'
+import {Provider} from 'react-redux'
+import {getStore} from './store/index'
+import App from './components/app/index'
 
 const renderFullPage= (html, state)=> {
   return `
@@ -26,24 +26,37 @@ const renderFullPage= (html, state)=> {
     </body>
   </html>
   `
-};
+}
 
 const handleRender= (req, res)=> {
-  const store= getStore();
-  const state= store.getState();
+  let _store
+
+  if(req.query.state)
+  {
+    const decoded= decodeURIComponent(req.query.state)
+    const state= JSON.parse(decoded)
+    _store= getStore({isClient:false}, state)
+  }
+  else
+  {
+    _store= getStore()
+  }
+
+  const store= _store
+  const state= store.getState()
 
   const html = renderToString(
     <Provider store={store}>
       <App />
     </Provider>
-  );
+  )
 
-  res.send(renderFullPage(html, state));
-};
+  res.send(renderFullPage(html, state))
+}
 
-const app = express();
-const port = process.env.PORT || 3000;
-app.use('/out', express.static('out/client'));
-app.use(handleRender);
-app.listen(port);
-console.log(`listening on localhost:${port} ...`);
+const app = express()
+const port = process.env.PORT || 3000
+app.use('/out', express.static('out/client'))
+app.use(handleRender)
+app.listen(port)
+console.log(`listening on localhost:${port} ...`)
