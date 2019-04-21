@@ -1,11 +1,7 @@
-## react-redux-ssr setup development kit
+## react-redux-ssr-history
 
-this is a minimum bare setup for development of **react-redux-ssr** apps ready to be published/deployed on **nodejs** hosting services.
+this is an app built upon the **react-redux-ssr** app.
 
-you do **npm i --production** if you don't want to develop. but because this is not the case, you do **npm i** instead.
+this app adds navigation capabilities through **state** history.
 
-you do **npm run dev** to develop.
-
-you do **npm run build** and **npm run start** when you want to run the app.
-
-this app has been deployed to **heroku** and can be accessed through https://react-redux-ssr.herokuapp.com.
+on reloading, the app is server side rendered with the same **state** it was previous to reloading. that's it, keeps the **state** on reloading (server side rendering).
