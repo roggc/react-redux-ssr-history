@@ -1,0 +1,38 @@
+{
+  "name": "react-redux-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wbserver": "npx webpack --mode production --config wbserver.config.js",
+    "wbclient": "npx webpack --mode production --config wbclient.config.js",
+    "wbclient-dev": "npx webpack -w --mode development --config wbclient.config.js",
+    "nodemon": "npx nodemon --exec \"babel-node --inspect\" ./src/server.js",
+    "dev": "npm run wbclient-dev & npm run nodemon",
+    "build": "npm run wbserver & npm run wbclient",
+    "start": "node out/server/server.js"
+  },
+  "author": "rgc",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "express": "^4.16.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.2.2",
+    "nodemon": "^1.18.11"
+  }
+}
