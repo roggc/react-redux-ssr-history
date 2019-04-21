@@ -19,8 +19,8 @@ const render= (state)=>
 }
 
 window.addEventListener('popstate', function(e) {
-  const stringState= decodeURIComponent(e.state)
-  const state= JSON.parse(stringState)
+  const stringifyed= decodeURIComponent(e.state)
+  const state= JSON.parse(stringifyed)
   render(state)
 })
 

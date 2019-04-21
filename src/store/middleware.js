@@ -2,7 +2,7 @@ console.log('src/store/middleware')
 
 import * as types from '../actions/types'
 
-export const urlQuery = store => next => action => {
+export const stateHistory = store => next => action => {
   next(action)
   if(action.type != types.ENVIRONMENT_SET)
   {

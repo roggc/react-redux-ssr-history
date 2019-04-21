@@ -4,14 +4,14 @@ import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers/index'
 import {environmentSet} from '../actions/index'
-import {urlQuery} from './middleware'
+import {stateHistory} from './middleware'
 
 export const getStore= (conf= {isClient:false}, state)=>
 {
   let store
   if(conf.isClient)
   {
-    const middlewares = [thunk, urlQuery]
+    const middlewares = [thunk, stateHistory]
     if(!state)
     {
       state = window.__STATE__
