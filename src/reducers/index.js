@@ -1,11 +1,11 @@
-console.log('src/reducers/index');
+console.log('src/reducers/index')
 
-import {combineReducers} from 'redux';
-import * as types from '../actions/types';
+import {combineReducers} from 'redux'
+import * as types from '../actions/types'
 
 const environmentReducer= (val= {isClient:false}, act)=>
 {
-  let newVal;
+  let newVal
   switch(act.type)
   {
     case types.ENVIRONMENT_SET:
@@ -14,26 +14,26 @@ const environmentReducer= (val= {isClient:false}, act)=>
         ...val,
         isClient: act.val.isClient
       };
-      return newVal;
+      return newVal
     default:
-      return val;
+      return val
   }
 };
 
 const messageReducer= (val= "hello world!", act) =>
 {
-  let newVal;
+  let newVal
   switch(act.type)
   {
     case types.MESSAGE_SET:
-      newVal= act.val;
-      return newVal;
+      newVal= act.val
+      return newVal
     default:
-      return val;
+      return val
   }
 };
 
 export default combineReducers({
     environment: environmentReducer,
     message: messageReducer
-});
+})

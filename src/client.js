@@ -15,7 +15,7 @@ const render= (state)=>
       <App/>
     </Provider>,
     document.getElementById('root')
-  );
+  )
 }
 
 window.addEventListener('popstate', function(e) {

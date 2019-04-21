@@ -1,15 +1,15 @@
-console.log('src/components/stateExample1/index');
+console.log('src/components/stateExample1/index')
 
-import React from 'react';
-import {connect} from 'react-redux';
-import {messageSet} from '../../actions/index';
+import React from 'react'
+import {connect} from 'react-redux'
+import {messageSet} from '../../actions/index'
 
 const comp= (props)=>
 {
   const buttonClicked=()=>
   {
-    props.messageSet('i\'ve been clicked');
-  };
+    props.messageSet('i\'ve been clicked')
+  }
 
   const el=
   (
@@ -19,9 +19,9 @@ const comp= (props)=>
         <button onClick={buttonClicked}>click me ...</button>
       </div>
     </div>
-  );
-  return el;
-};
+  )
+  return el
+}
 
 const mapStateToProps=(state)=>
 {
@@ -29,12 +29,12 @@ const mapStateToProps=(state)=>
   {
     message: state.message
   };
-  return ob;
+  return ob
 };
 
 const mapDispatchToProps=
 {
   messageSet
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(comp);
+export default connect(mapStateToProps, mapDispatchToProps)(comp)

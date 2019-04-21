@@ -1,6 +1,6 @@
-console.log('src/actions/index');
+console.log('src/actions/index')
 
-import * as types from './types';
+import * as types from './types'
 
 export const messageSet=(val)=>
 {
@@ -8,9 +8,9 @@ export const messageSet=(val)=>
   {
     type: types.MESSAGE_SET,
     val: val
-  };
-  return act;
-};
+  }
+  return act
+}
 
 export const environmentSet=(val)=>
 {
@@ -18,6 +18,6 @@ export const environmentSet=(val)=>
   {
     type: types.ENVIRONMENT_SET,
     val: val
-  };
-  return act;
-};
+  }
+  return act
+}
